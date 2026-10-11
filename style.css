@@ -1,0 +1,351 @@
+/* =========================================================
+   1. DESIGN SYSTEM - VARIÁVEIS NATIVAS DO CSS (:root)
+   ========================================================= */
+:root {
+    /* Paleta de Cores (8 cores distintas) */
+    --cor-primaria: #1b4965;         /* Azul escuro institucional */
+    --cor-primaria-hover: #143649;   /* Azul escuro interativo */
+    --cor-secundaria: #62b6cb;       /* Azul claro de destaque */
+    --cor-fundo-pagina: #f8f9fa;     /* Neutro claro para o corpo */
+    --cor-fundo-card: #ffffff;       /* Branco para containers */
+    --cor-texto-principal: #2b2d42;  /* Neutro escuro legível */
+    --cor-texto-suave: #6c757d;      /* Neutro médio para legendas */
+    --cor-borda: #cbd5e1;            /* Cinza suave para bordas */
+
+    /* Escala Tipográfica (5 patamares hierárquicos) */
+    --fonte-h1: 2rem;        /* 32px - Título Principal */
+    --fonte-h2: 1.5rem;      /* 24px - Títulos de Seção */
+    --fonte-h3: 1.25rem;     /* 20px - Subtítulos */
+    --fonte-corpo: 1rem;      /* 16px - Texto base */
+    --fonte-small: 0.875rem; /* 14px - Rodapé e avisos */
+
+    /* Espaçamentos Modulares (Escala estrita de 8px) */
+    --espaco-xs: 4px;
+    --espaco-sm: 8px;
+    --espaco-md: 16px;
+    --espaco-lg: 24px;
+    --espaco-xl: 32px;
+}
+
+/* =========================================================
+   2. ESTILOS GLOBAIS E ESTRUTURA
+   ========================================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-principal);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: var(--fonte-corpo);
+}
+
+/* Cabeçalho e Navegação (Componente Flexbox 1) */
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-card);
+    padding: var(--espaco-lg);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 var(--espaco-sm) 0;
+    font-size: var(--fonte-h1);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor-primaria-hover);
+    padding: var(--espaco-sm);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--espaco-md);
+}
+
+nav li {
+    position: relative; /* Fundamental para o alinhamento do dropdown */
+}
+
+nav a {
+    color: var(--cor-fundo-card);
+    text-decoration: none;
+    font-weight: bold;
+    padding: var(--espaco-xs) var(--espaco-sm);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    display: block;
+}
+
+nav a:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-principal);
+}
+
+/* Container Principal e Grid */
+main {
+    max-width: 1200px;
+    margin: var(--espaco-xl) auto;
+    background: var(--cor-fundo-card);
+    padding: var(--espaco-xl);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-md);
+}
+
+/* Lista de Cartões de Projetos (Componente Flexbox 2) */
+.lista-projetos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--espaco-lg);
+}
+
+.card-projeto {
+    background-color: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: var(--espaco-md);
+    flex: 1 1 calc(33.333% - var(--espaco-lg));
+    box-sizing: border-box;
+}
+
+h2 {
+    color: var(--cor-primaria);
+    font-size: var(--fonte-h2);
+}
+
+h3 {
+    color: var(--cor-primaria);
+    font-size: var(--fonte-h3);
+}
+
+#apresentacao img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: var(--espaco-md) 0;
+    border-radius: 8px;
+}
+
+/* Formulários */
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    padding: var(--espaco-lg);
+    margin-bottom: var(--espaco-lg);
+}
+
+legend {
+    font-weight: bold;
+    color: var(--cor-primaria);
+    padding: 0 var(--espaco-sm);
+}
+
+label {
+    font-weight: 600;
+    font-size: var(--fonte-corpo);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 100%;
+    padding: var(--espaco-sm);
+    margin-top: var(--espaco-xs);
+    margin-bottom: var(--espaco-md);
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: var(--cor-secundaria);
+    outline: none;
+    box-shadow: 0 0 5px rgba(98, 182, 203, 0.5);
+}
+
+button[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-card);
+    border: none;
+    padding: var(--espaco-md) var(--espaco-lg);
+    font-size: var(--fonte-corpo);
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-principal);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: var(--espaco-lg);
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-card);
+    margin-top: var(--espaco-xl);
+    font-size: var(--fonte-small);
+}
+
+/* =========================================================
+   3. RESPONSIVIDADE E BREAKPOINTS (@media)
+   ========================================================= */
+
+/* 1. Mobile Extra Pequeno */
+@media (max-width: 575px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .card-projeto {
+        flex: 1 1 100%;
+    }
+}
+
+/* 2. Mobile / Tablet Retrato */
+@media (min-width: 576px) and (max-width: 767px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .card-projeto {
+        flex: 1 1 calc(50% - var(--espaco-lg));
+    }
+}
+
+/* 3. Tablet Paisagem / Laptop Pequeno */
+@media (min-width: 768px) and (max-width: 991px) {
+    .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+/* 4. Desktop / Notebook */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .grid-container {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+/* 5. Desktop Panorâmico */
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(12, 1fr);
+        max-width: 1400px;
+    }
+}
+
+/* =========================================================
+   4. NAVEGAÇÃO INTERATIVA (DROPDOWN E MOBILE HAMBÚRGUER)
+   ========================================================= */
+
+/* Submenu Dropdown (Oculto por padrão no Desktop) */
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--cor-primaria-hover);
+    list-style: none;
+    padding: var(--espaco-xs) 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+/* Exibição do Submenu no Hover */
+nav li:hover > ul {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Botão Menu Hambúrguer (Oculto no Desktop) */
+.menu-hamburguer {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--cor-fundo-card);
+    cursor: pointer;
+    padding: var(--espaco-xs) var(--espaco-sm);
+}
+
+/* Regras Responsivas para o Menu em Telas Menores (Mobile) */
+@media (max-width: 767px) {
+    .menu-hamburguer {
+        display: block; /* Exibe o botão hambúrguer no mobile */
+    }
+
+    nav ul {
+        display: none; /* Oculta a lista padrão no mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--cor-primaria-hover);
+        padding: var(--espaco-sm);
+    }
+
+    /* Estado ativo quando o menu hambúrguer for clicado */
+    nav.active ul {
+        display: flex;
+    }
+}
+/* =========================================================
+   5. COMPONENTES DE FEEDBACK (ALERTAS, TOASTS, BADGES E MODAL)
+   ========================================================= */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: var(--fonte-small);
+  font-weight: bold;
+  color: var(--cor-fundo-card);
+  background-color: var(--cor-primaria);
+}
+
+.badge-sucesso { background-color: #28a745; }
+.badge-alerta { background-color: #ffc107; color: #000; }
+.badge-erro { background-color: #dc3545; }
+
+.alerta {
+  padding: var(--espaco-md);
+  border-radius: 8px;
+  margin: var(--espaco-md) 0;
+  border-left: 5px solid var(--cor-primaria);
+  background-color: #e9ecef;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-fundo-card);
+  padding: var(--espaco-md) var(--espaco-lg);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+/* Estilo para destacar o item de menu ativo */
+nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid #ffffff; /* Ou outra cor de destaque do seu tema */
+    opacity: 1;
+}

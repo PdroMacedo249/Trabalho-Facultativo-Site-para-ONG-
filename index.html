@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONG Esperança Viva - Página Inicial</title>
+    <!-- Se o index.html estiver dentro da pasta /html, o ../ volta para a raiz e entra na /css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>ONG Esperança Viva</h1>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="#" data-pagina="inicio">Início</a></li>
+                <li><a href="#" data-pagina="projeto">Projeto</a></li>
+                <li><a href="#" data-pagina="cadastro">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo-principal">
+        <!-- Conteúdo fixo da tela Início (evita que a tela fique em branco) -->
+        <div class="alerta" role="status" aria-live="polite">
+            <strong>Informativo:</strong> Seja bem-vindo à plataforma da ONG Esperança Viva! Confira nossos projetos sociais e cadastre-se para ajudar nossa causa.
+        </div>
+
+        <section id="apresentacao">
+            <h2>Sobre a Nossa Organização</h2>
+            <img src="../imagens/logo.jpg" alt="Logotipo da ONG Esperança Viva com mãos entrelaçadas simbolizando união e apoio comunitário">
+            <p>Somos uma instituição sem fins lucrativos dedicada a apoiar famílias em situação de vulnerabilidade social através de projetos educativos e comunitários.</p>
+        </section>
+
+        <section id="contato">
+            <h2>Fale Conosco</h2>
+            <address>
+                <p><strong>E-mail:</strong> <a href="mailto:contato@esperancaviva.org">contato@esperancaviva.org</a></p>
+                <p><strong>Telefone:</strong> <a href="tel:+5511987654321">(11) 98765-4321</a></p>
+                <p><strong>Endereço:</strong> Rua da Solidariedade, 123 - Centro</p>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ONG Esperança Viva - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Importação do arquivo JavaScript correto -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
